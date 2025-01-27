@@ -11,6 +11,8 @@ defmodule BankEventSourcing.Application do
       {DNSCluster, query: Application.get_env(:bank_event_sourcing, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: BankEventSourcing.PubSub},
       BankEventSourcingWeb.Endpoint,
+      BankEventSourcing.AccountManager,
+      BankEventSourcing.EventStore
     ]
 
     opts = [strategy: :one_for_one, name: BankEventSourcing.Supervisor]
